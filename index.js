@@ -13,12 +13,14 @@ app.get('/', function (req, res) {
 app.get('/register', function (req, res) {
     consul.agent.service.register('example', function(err) {
         if (err) throw err;
+        res.send('Registered!')
     });
 })
 
 app.get('/deregister', function (req, res) {
     consul.agent.service.deregister('example', function(err) {
         if (err) throw err;
+        res.send('Deegistered!')
     });
 })
 
