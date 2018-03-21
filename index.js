@@ -11,7 +11,15 @@ app.get('/', function (req, res) {
 });
 
 app.get('/register', function (req, res) {
-    consul.agent.service.register('example', function(err) {
+    var num = req.query.num;
+    consul.agent.service.register({
+        name: 'example',
+        tags: [
+            "traefik.frontend.rule=Host:test" + num + ".cognimap.eu",
+            "traefik.frontend.entryPoints=http",
+            "traefik.enable=true"
+        ]
+    }, function(err) {
         if (err) throw err;
         res.send('Registered!')
     });
