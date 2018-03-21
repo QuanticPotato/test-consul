@@ -1,0 +1,9 @@
+{
+  "name": "test-consul",
+  "version": "0.0.1",
+  "dependencies": {
+    "consul": "^0.30.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.3"
+  }
+}
